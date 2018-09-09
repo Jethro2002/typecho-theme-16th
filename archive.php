@@ -8,7 +8,9 @@
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
         ), '', ''); ?></h3>
-        <?php echo "<p class='post'>";echo $this->getDescription();echo "</p>"; ?>
+        <?php if ($this->is('category') && $this->getDescription()!=""): ?>
+            <p class="post"><?php _e($this->getDescription()); ?></p>
+        <?php endif; ?>
         <?php if ($this->have()): ?>
     	<?php while($this->next()): ?>
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
